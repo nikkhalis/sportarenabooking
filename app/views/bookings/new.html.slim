@@ -1,0 +1,24 @@
+h2.display-4.font-weight-bold.mb-4 = "#{@court.name}"
+
+= form_with(model: @booking, url: court_bookings_path(@court), local: true, class: 'space-y-4') do |form|
+  - if @booking.errors.any?
+    .alert.alert-danger
+      h4.font-weight-bold There were some errors with your submission:
+      ul
+        - @booking.errors.full_messages.each do |message|
+          li = message
+
+  .card.bg-light.shadow-sm.rounded
+    .card-body
+      .mb-4
+        = form.label :start_time, "Start Time", class: 'form-label'
+        = form.datetime_select :start_time, class: 'form-control'
+
+      .mb-4
+        = form.label :end_time, "End Time", class: 'form-label'
+        = form.datetime_select :end_time, class: 'form-control'
+
+      = form.hidden_field :court_id, value: @court.id
+
+      .mt-4
+        = form.submit 'Confirm', class: 'btn btn-primary'

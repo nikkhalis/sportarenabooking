@@ -1,0 +1,18 @@
+h1.display-4.font-weight-bold.mb-4 Courts
+
+= form_tag courts_path, method: :get, class: 'mb-4' do
+  .form-group.d-flex.align-items-center
+    = select_tag :court_type, options_for_select([['All', ''], ['Badminton', 0], ['Futsal', 1]], params[:court_type]), class: 'form-control w-auto', onchange: 'this.form.submit()'
+
+- if @courts.any?
+  .row
+    - @courts.each do |court|
+      .col-md-4.mb-4
+        .card.shadow-sm
+          .card-body
+            h2.card-title.font-weight-bold = court.name
+            p.card-text.text-muted Arena: #{court.arena.name}
+            / p.card-text.text-muted Available at: #{court.available.strftime('%H:%M, %d %B %Y')}
+            = link_to 'Book Now', new_court_booking_path(court_id: court.id), class: 'btn btn-primary'
+- else
+  p.text-muted No courts available.

@@ -1,0 +1,23 @@
+h2.text-2xl.font-bold.mb-4 Payment for Booking
+
+p Your booking has been created successfully. Proceed with payment:
+
+.div.bg-white.shadow-md.rounded-lg.p-6
+  p
+    strong Booking ID:
+    = @booking.id
+  p
+    strong Court:
+    = @booking.court.name
+  p
+    strong Start Time:
+    = @booking.start_time
+  p
+    strong End Time:
+    = @booking.end_time
+
+p
+  strong Note:
+  |  This is a test page. No real payment will be processed.
+
+= link_to 'Confirm Payment', courts_path, class: 'px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'

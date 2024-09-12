@@ -1,0 +1,26 @@
+h2.display-4.font-weight-bold.mb-4 Payment for Booking
+
+p Your booking has been created successfully. Proceed with payment:
+
+.card.bg-light.shadow-sm.rounded
+  .card-body
+    p
+      strong Booking ID:
+      = @booking.id
+    p
+      strong Court:
+      = @booking.court.name
+    p
+      strong Start Time:
+      = @booking.start_time.strftime('%Y-%m-%d %H:%M')
+    p
+      strong End Time:
+      = @booking.end_time.strftime('%Y-%m-%d %H:%M')
+
+  .alert.alert-info.mt-4
+    strong Note:
+    |  This is a test page. No real payment will be processed.
+
+br
+
+= link_to 'Proceed Payment', 'https://sandbox.securepay.my/collections/ghpTL3Ia', class: 'btn btn-primary', target: '_blank'
