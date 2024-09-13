@@ -56,3 +56,6 @@ gem "rubocop", require: false
 gem "bootstrap", "~> 5.3.0"
 
 gem "devise"
+
+gem "tomo"
+gem "net-pop", require: false
