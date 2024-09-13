@@ -11,12 +11,16 @@ h2.display-4.font-weight-bold.mb-4 = "#{@court.name}"
   .card.bg-light.shadow-sm.rounded
     .card-body
       .mb-4
-        = form.label :start_time, "Start Time", class: 'form-label'
-        = form.datetime_select :start_time, class: 'form-control'
-
+        = form.label :start_time, "Start Time:", class: 'form-label'
+        = form.datetime_select :start_time, class: 'form-control', 
+                              include_blank: false,
+                              default: Time.zone.now.change(min: 0, sec: 0)
+      
       .mb-4
-        = form.label :end_time, "End Time", class: 'form-label'
-        = form.datetime_select :end_time, class: 'form-control'
+        = form.label :end_time, "End Time:", class: 'form-label'
+        = form.datetime_select :end_time, class: 'form-control',
+                              include_blank: false,
+                              default: (Time.zone.now + 1.hour).change(min: 0, sec: 0)
 
       = form.hidden_field :court_id, value: @court.id
 
