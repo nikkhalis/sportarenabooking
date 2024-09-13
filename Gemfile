@@ -58,4 +58,4 @@ gem "bootstrap", "~> 5.3.0"
 gem "devise"
 
 gem "tomo"
-gem "net-pop", require: false
+# gem "net-pop", require: false
