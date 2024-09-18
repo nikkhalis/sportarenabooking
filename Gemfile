@@ -59,4 +59,6 @@ gem "devise"
 
 gem "tomo"
 
-gem "net-pop"
+gem "net-protocol", ">= 0.1.2"
+
+gem "net-pop", ">= 0.1.1"
